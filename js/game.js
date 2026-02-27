@@ -10,6 +10,10 @@ var computerMoveTimeout = null;
 var cursorInterval = null;
 var mousedownEventListener = null;
 
+function shouldDrawBoardNow() {
+  return (typeof isComputerMoveAnimating !== "function") || !isComputerMoveAnimating();
+}
+
 var initGameLoop = function() {
   board = [
     [0, 0, 0, 0, 0, 0, 0, 0],
@@ -51,6 +55,9 @@ var initGameLoop = function() {
   window.clearInterval(cursorInterval);
   window.clearTimeout(firstComputerMoveTimeout);
   window.clearTimeout(computerMoveTimeout);
+  if (typeof cancelComputerMoveAnimation === "function") {
+    cancelComputerMoveAnimation();
+  }
   canvas.removeEventListener("mousedown", mousedownEventListener);
 
   drawBoard();
@@ -66,7 +73,9 @@ var initGameLoop = function() {
         if (turn == 2) player2.acceptMove(player2);
       }
       frameCount += 1;
-      drawBoard();
+      if (shouldDrawBoardNow()) {
+        drawBoard();
+      }
       if (!state) {
         window.clearInterval(compVsCompInterval);
       }
@@ -75,7 +84,9 @@ var initGameLoop = function() {
     if (player1.isComputer) {
       firstComputerMoveTimeout = setTimeout(function() {
         player1.acceptMove(player1);
-        drawBoard();
+        if (shouldDrawBoardNow()) {
+          drawBoard();
+        }
         document.getElementById("board").style.cursor =
           (turn == 1) ? player1.cursor : player2.cursor;
       }, 1000);
@@ -104,10 +115,14 @@ var initGameLoop = function() {
       computerMoveTimeout = setTimeout(function() {
         if (turn == 1 && player1.isComputer) {
           player1.acceptMove(player1);
-          drawBoard();
+          if (shouldDrawBoardNow()) {
+            drawBoard();
+          }
         } else if (turn == 2 && player2.isComputer) {
           player2.acceptMove(player2);
-          drawBoard();
+          if (shouldDrawBoardNow()) {
+            drawBoard();
+          }
         }
       }, 1000);
     });

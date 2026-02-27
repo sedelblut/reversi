@@ -28,6 +28,7 @@ var computerPlayer = function() {
   this.isComputer = true;
   this.strategies = {
     cornerMoves: true,
+    positionalWeights: true,
     mostCaptures: true,
     randomMoves: false
   };
