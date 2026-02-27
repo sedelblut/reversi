@@ -10,6 +10,15 @@ var computerMoveTimeout = null;
 var cursorInterval = null;
 var boardInputEventListener = null;
 
+function addComment(message) {
+  comments.innerHTML += message + "<br>";
+  comments.scrollTop = comments.scrollHeight;
+  var latestComment = document.getElementById("latestComment");
+  if (latestComment !== null) {
+    latestComment.textContent = "Latest: " + message;
+  }
+}
+
 function shouldDrawBoardNow() {
   return (typeof isComputerMoveAnimating !== "function") || !isComputerMoveAnimating();
 }
@@ -43,9 +52,8 @@ var initGameLoop = function() {
   player2.piece = whitePiece;
   player1.cursor = blackCursor;
   player2.cursor = whiteCursor;
-  comments.innerHTML += "New Game" + "<br>";
-  comments.innerHTML += "Player " + turn + " turn<br>";
-  comments.scrollTop = comments.scrollHeight;
+  addComment("New Game");
+  addComment("Player " + turn + " turn");
   player1score.innerHTML = player1.score;
   player2score.innerHTML = player2.score;
   player1type.innerHTML = player1.name;
@@ -223,13 +231,11 @@ function makeMove(x, y) {
       turn = getGameState();
       return true;
     } else {
-      comments.innerHTML += "No captures to be made.<br>";
-      comments.scrollTop = comments.scrollHeight;
+      addComment("No captures to be made.");
       return false;
     }
   } else {
-    comments.innerHTML += "That move is not allowed.<br>";
-    comments.scrollTop = comments.scrollHeight;
+    addComment("That move is not allowed.");
     return false;
   }
 }
@@ -258,25 +264,22 @@ function getGameState() {
   }
 
   if (currentCount === 0 && nextCount === 0) {
-    comments.innerHTML += "Game Over!<br>";
+    addComment("Game Over!");
     if (player1.score == player2.score) {
-      comments.innerHTML += "It's a Tie!<br>";
+      addComment("It's a Tie!");
     } else {
       winner = (player1.score > player2.score) ? 1 : 2;
-      comments.innerHTML += "Player " + winner + " wins!<br>";
+      addComment("Player " + winner + " wins!");
     }
-    comments.scrollTop = comments.scrollHeight;
     document.getElementById("board").style.cursor = "default";
     state = false;
     return null;
   } else if (nextCount > 0) {
-    comments.innerHTML += "Player " + nextTurn + " turn" + "<br>";
-    comments.scrollTop = comments.scrollHeight;
+    addComment("Player " + nextTurn + " turn");
     return nextTurn;
   } else {
-    comments.innerHTML += "Player " + nextTurn +
-      " does not have any moves.<br>Player " + turn + " turn.<br>";
-    comments.scrollTop = comments.scrollHeight;
+    addComment("Player " + nextTurn + " does not have any moves.");
+    addComment("Player " + turn + " turn.");
     return currentTurn;
   }
 

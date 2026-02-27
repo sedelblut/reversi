@@ -100,6 +100,12 @@ body {
   font-family: 'Open Sans', sans-serif;
   padding: 5px;
 }
+#latestComment {
+  min-height: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
 #container {
   width: 100%;
   max-width: 760px;
