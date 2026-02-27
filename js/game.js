@@ -8,7 +8,7 @@ var compVsCompInterval = null;
 var firstComputerMoveTimeout = null;
 var computerMoveTimeout = null;
 var cursorInterval = null;
-var mousedownEventListener = null;
+var boardInputEventListener = null;
 
 function shouldDrawBoardNow() {
   return (typeof isComputerMoveAnimating !== "function") || !isComputerMoveAnimating();
@@ -58,7 +58,8 @@ var initGameLoop = function() {
   if (typeof cancelComputerMoveAnimation === "function") {
     cancelComputerMoveAnimation();
   }
-  canvas.removeEventListener("mousedown", mousedownEventListener);
+  canvas.removeEventListener("mousedown", boardInputEventListener);
+  canvas.removeEventListener("touchstart", boardInputEventListener);
 
   drawBoard();
 
@@ -103,7 +104,7 @@ var initGameLoop = function() {
       }
     });
 
-    canvas.addEventListener("mousedown", mousedownEventListener = function() {
+    boardInputEventListener = function(event) {
       if (turn == 1 && player1.isHuman) {
         player1.acceptMove(event);
         drawBoard();
@@ -125,6 +126,10 @@ var initGameLoop = function() {
           }
         }
       }, 1000);
+    };
+    canvas.addEventListener("mousedown", boardInputEventListener);
+    canvas.addEventListener("touchstart", boardInputEventListener, {
+      passive: false
     });
   }
 };
