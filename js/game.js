@@ -15,7 +15,7 @@ function addComment(message) {
   comments.scrollTop = comments.scrollHeight;
   var latestComment = document.getElementById("latestComment");
   if (latestComment !== null) {
-    latestComment.textContent = "Latest: " + message;
+    latestComment.textContent = message;
   }
 }
 
