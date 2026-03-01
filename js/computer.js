@@ -30,10 +30,6 @@ function cancelComputerMoveAnimation() {
   }
 }
 
-function getMoveSquare(moveData) {
-  return moveData[0][1];
-}
-
 function getAnimationStartPoint(targetX, targetY) {
   var offBoardStart = 80;
   var leftDistance = targetX;
@@ -103,13 +99,6 @@ function computerMove(player) {
 
   var move = [];
   var possibleMoves = [];
-  var possibleCornerMoves = [];
-  var corners = [
-    [0, 0],
-    [7, 0],
-    [7, 7],
-    [0, 7]
-  ];
 
   for (var i = 0; i < board.length; i++) {
 
@@ -117,56 +106,30 @@ function computerMove(player) {
       if (board[i][j] === 0) {
         move = traverse(i, j, turn);
         if (move[0]) {
-          possibleMoves.push(new Array([move[2],
-            [i, j]
-          ]));
+          possibleMoves.push([i, j]);
         }
       }
     }
 
   }
 
-  if (player.strategies.cornerMoves) {
-    possibleMoves.forEach(function(possibleElement) {
-      corners.forEach(function(cornerElement) {
-        if (possibleElement[0][1].toString() === cornerElement.toString()) {
-          possibleCornerMoves.push(possibleElement);
-        }
-      });
-    });
-    if (possibleCornerMoves.length > 0) {
-      possibleMoves = possibleCornerMoves;
-    }
-  }
-
-  if (player.strategies.mostCaptures) {
-    var mostCaptures = Math.max.apply(Math, possibleMoves.map(function(value) {
-      return value[0][0];
-    }));
-    possibleMoves = possibleMoves.filter(function(value) {
-      return value[0][0] == mostCaptures;
-    });
-  }
-
-  if (player.strategies.positionalWeights !== false) {
-    var bestWeight = Math.max.apply(Math, possibleMoves.map(function(value) {
-      var x = value[0][1][0];
-      var y = value[0][1][1];
-      return POSITION_WEIGHTS[x][y];
-    }));
-    possibleMoves = possibleMoves.filter(function(value) {
-      var x = value[0][1][0];
-      var y = value[0][1][1];
-      return POSITION_WEIGHTS[x][y] === bestWeight;
-    });
-  }
-
   if (possibleMoves.length === 0) {
     return;
   }
 
+  var bestWeight = Math.max.apply(Math, possibleMoves.map(function(value) {
+    var x = value[0];
+    var y = value[1];
+    return POSITION_WEIGHTS[x][y];
+  }));
+  possibleMoves = possibleMoves.filter(function(value) {
+    var x = value[0];
+    var y = value[1];
+    return POSITION_WEIGHTS[x][y] === bestWeight;
+  });
+
   var randomMoveIndex = randomNumber(0, possibleMoves.length - 1);
-  var selectedSquare = getMoveSquare(possibleMoves[randomMoveIndex]);
+  var selectedSquare = possibleMoves[randomMoveIndex];
   computerMoveAnimationInProgress = true;
   animateComputerPieceToSquare(player, selectedSquare, function() {
     computerMoveAnimationInProgress = false;
