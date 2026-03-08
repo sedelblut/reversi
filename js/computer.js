@@ -117,12 +117,12 @@ function computerMove(player) {
     return;
   }
 
-  var bestWeight = Math.max.apply(Math, possibleMoves.map(function(value) {
+  var bestWeight = Math.max.apply(Math, possibleMoves.map(function (value) {
     var x = value[0];
     var y = value[1];
     return POSITION_WEIGHTS[x][y];
   }));
-  possibleMoves = possibleMoves.filter(function(value) {
+  possibleMoves = possibleMoves.filter(function (value) {
     var x = value[0];
     var y = value[1];
     return POSITION_WEIGHTS[x][y] === bestWeight;
@@ -131,7 +131,7 @@ function computerMove(player) {
   var randomMoveIndex = randomNumber(0, possibleMoves.length - 1);
   var selectedSquare = possibleMoves[randomMoveIndex];
   computerMoveAnimationInProgress = true;
-  animateComputerPieceToSquare(player, selectedSquare, function() {
+  animateComputerPieceToSquare(player, selectedSquare, function () {
     computerMoveAnimationInProgress = false;
     if (!state) {
       return;
