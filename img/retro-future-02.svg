@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-label="Retro future chrome orbit background">
+  <defs>
+    <linearGradient id="bg02" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071022"/>
+      <stop offset="55%" stop-color="#1f2950"/>
+      <stop offset="100%" stop-color="#3b0e58"/>
+    </linearGradient>
+    <radialGradient id="core02" cx="0.48" cy="0.48" r="0.52">
+      <stop offset="0%" stop-color="#9dfff5" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#60d7ff" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#60d7ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow02">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="500" height="500" fill="url(#bg02)"/>
+  <rect width="500" height="500" fill="url(#core02)"/>
+
+  <g fill="none" filter="url(#glow02)">
+    <circle cx="250" cy="250" r="150" stroke="#8be9ff" stroke-opacity="0.65" stroke-width="3"/>
+    <circle cx="250" cy="250" r="110" stroke="#6cfed1" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="7 13"/>
+    <circle cx="250" cy="250" r="76" stroke="#ffd0ff" stroke-opacity="0.45" stroke-width="2"/>
+    <ellipse cx="250" cy="250" rx="188" ry="86" stroke="#78f0ff" stroke-opacity="0.4" stroke-width="3" transform="rotate(24 250 250)"/>
+    <ellipse cx="250" cy="250" rx="174" ry="64" stroke="#ff9de1" stroke-opacity="0.35" stroke-width="2.5" transform="rotate(-18 250 250)"/>
+  </g>
+
+  <g>
+    <circle cx="388" cy="178" r="14" fill="#9df6ff"/>
+    <circle cx="128" cy="333" r="12" fill="#ff9fd9"/>
+    <circle cx="184" cy="111" r="9" fill="#ffe28f"/>
+    <circle cx="329" cy="356" r="8" fill="#c1ff8f"/>
+  </g>
+
+  <circle cx="250" cy="250" r="34" fill="#d7faff"/>
+  <circle cx="250" cy="250" r="18" fill="#ffffff" fill-opacity="0.85"/>
+</svg>

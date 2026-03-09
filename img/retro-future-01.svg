@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-label="Retro future neon sunset background">
+  <defs>
+    <linearGradient id="sky01" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#140028"/>
+      <stop offset="48%" stop-color="#3e1470"/>
+      <stop offset="100%" stop-color="#ff5e7e"/>
+    </linearGradient>
+    <radialGradient id="sunGlow01" cx="0.5" cy="0.42" r="0.42">
+      <stop offset="0%" stop-color="#ffd8a8" stop-opacity="0.95"/>
+      <stop offset="60%" stop-color="#ff9c6e" stop-opacity="0.78"/>
+      <stop offset="100%" stop-color="#ff4b6e" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="sunClip01">
+      <circle cx="250" cy="220" r="96"/>
+    </clipPath>
+  </defs>
+  <rect width="500" height="500" fill="url(#sky01)"/>
+  <rect width="500" height="500" fill="url(#sunGlow01)"/>
+
+  <circle cx="250" cy="220" r="90" fill="#ffb35f"/>
+  <g clip-path="url(#sunClip01)" opacity="0.65">
+    <rect x="150" y="160" width="200" height="12" fill="#ff6e8e"/>
+    <rect x="150" y="186" width="200" height="10" fill="#ff6e8e"/>
+    <rect x="150" y="209" width="200" height="10" fill="#ff6e8e"/>
+    <rect x="150" y="232" width="200" height="12" fill="#ff6e8e"/>
+    <rect x="150" y="258" width="200" height="12" fill="#ff6e8e"/>
+  </g>
+
+  <polygon points="0,385 92,300 172,374 258,285 332,370 420,295 500,380 500,500 0,500" fill="#20143f"/>
+  <polygon points="0,430 66,355 126,422 202,340 278,430 346,356 430,424 500,365 500,500 0,500" fill="#0e0b23"/>
+
+  <g fill="#ffd3f9" opacity="0.8">
+    <circle cx="58" cy="74" r="2"/>
+    <circle cx="108" cy="48" r="1.7"/>
+    <circle cx="421" cy="68" r="2"/>
+    <circle cx="457" cy="116" r="1.6"/>
+    <circle cx="341" cy="38" r="1.3"/>
+    <circle cx="214" cy="64" r="1.5"/>
+  </g>
+</svg>

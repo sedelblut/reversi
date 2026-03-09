@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-label="Retro future solar flare background">
+  <defs>
+    <linearGradient id="bg08" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2b0223"/>
+      <stop offset="45%" stop-color="#5a0a46"/>
+      <stop offset="100%" stop-color="#ff8b3d"/>
+    </linearGradient>
+    <radialGradient id="flare08" cx="0.46" cy="0.42" r="0.42">
+      <stop offset="0%" stop-color="#fff6be"/>
+      <stop offset="35%" stop-color="#ffd067"/>
+      <stop offset="70%" stop-color="#ff7a77" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ff7a77" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="500" height="500" fill="url(#bg08)"/>
+  <circle cx="230" cy="210" r="168" fill="url(#flare08)"/>
+
+  <g fill="none" stroke-linecap="round">
+    <path d="M72 212 C 136 166, 214 166, 302 194 C 352 210, 418 210, 468 188" stroke="#ffb0dd" stroke-opacity="0.55" stroke-width="5"/>
+    <path d="M54 252 C 138 212, 234 212, 324 248 C 378 268, 430 268, 478 248" stroke="#ffd6a7" stroke-opacity="0.52" stroke-width="6"/>
+    <path d="M60 296 C 152 264, 248 280, 340 320 C 388 340, 432 344, 470 334" stroke="#7de8ff" stroke-opacity="0.46" stroke-width="5"/>
+  </g>
+
+  <path d="M0 392 C 88 348, 160 426, 242 394 C 306 368, 386 430, 500 372 L 500 500 L 0 500 Z" fill="#1a0730" fill-opacity="0.92"/>
+</svg>

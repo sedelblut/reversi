@@ -7,12 +7,15 @@ const WIDTH = 500;
 const HEIGHT = 500;
 const LINEWIDTH = 2;
 const RADIUS = 35;
+const RETRO_FUTURE_BACKGROUND_COUNT = 10;
 
 var board = Array.matrix(GRIDSIZE, GRIDSIZE, 0);
 var grid = new Image();
 grid.src = "img/grid.svg";
 var background = new Image();
-background.src = "img/light-wood-textures-high-resolution.jpg";
+var randomBackgroundIndex = Math.floor(Math.random() * RETRO_FUTURE_BACKGROUND_COUNT) + 1;
+var randomBackgroundSuffix = (randomBackgroundIndex < 10 ? "0" : "") + randomBackgroundIndex;
+background.src = "img/retro-future-" + randomBackgroundSuffix + ".svg";
 
 function drawBoard() {
   var piece = null;

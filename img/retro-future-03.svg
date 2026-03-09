@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-label="Retro future cosmic wave background">
+  <defs>
+    <linearGradient id="bg03" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#001627"/>
+      <stop offset="45%" stop-color="#022a4a"/>
+      <stop offset="100%" stop-color="#0d0630"/>
+    </linearGradient>
+    <linearGradient id="waveA03" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#20f0ff"/>
+      <stop offset="100%" stop-color="#74ffae"/>
+    </linearGradient>
+    <linearGradient id="waveB03" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff62c7"/>
+      <stop offset="100%" stop-color="#ffaf50"/>
+    </linearGradient>
+    <filter id="blur03">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <rect width="500" height="500" fill="url(#bg03)"/>
+  <circle cx="82" cy="102" r="85" fill="#1ad2ff" fill-opacity="0.14" filter="url(#blur03)"/>
+  <circle cx="438" cy="402" r="105" fill="#ff57c2" fill-opacity="0.18" filter="url(#blur03)"/>
+
+  <path d="M-20 315 C 90 250, 145 380, 260 320 S 435 235, 540 300" fill="none" stroke="url(#waveA03)" stroke-width="14" stroke-linecap="round" stroke-opacity="0.75"/>
+  <path d="M-30 357 C 80 292, 174 428, 276 356 S 430 292, 530 360" fill="none" stroke="url(#waveB03)" stroke-width="12" stroke-linecap="round" stroke-opacity="0.72"/>
+  <path d="M-10 250 C 100 200, 200 286, 315 246 S 430 198, 520 235" fill="none" stroke="#6ab7ff" stroke-opacity="0.46" stroke-width="6" stroke-linecap="round"/>
+
+  <g fill="#d2ebff" opacity="0.8">
+    <circle cx="56" cy="44" r="1.4"/>
+    <circle cx="164" cy="72" r="1.8"/>
+    <circle cx="294" cy="60" r="1.2"/>
+    <circle cx="440" cy="90" r="1.5"/>
+    <circle cx="376" cy="138" r="1.3"/>
+    <circle cx="248" cy="34" r="1.1"/>
+  </g>
+</svg>
