@@ -1,30 +1,31 @@
-<?xml version="1.0" standalone="no"?>
-<svg baseProfile="tiny" height="50" version="1.2" width="50" xmlns:xlink="http://www.w3.org/1999/xlink/" xmlns="http://www.w3.org/2000/svg">
-  <title>black</title>
-  <desc></desc>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 100 100" role="img" aria-label="Black Reversi piece">
   <defs>
-    <!-- Create radial gradients for each circle to make them look like
-           spheres. -->
-    <radialGradient cx="0" cy="0" fx="-50%" fy="-50%" gradientUnits="userSpaceOnUse" id="blackSphere" r="100%">
-      <stop offset="0%" stop-color="white"/>
-      <stop offset="75%" stop-color="black"/>
-      <stop offset="100%" stop-color="black"/>
+    <radialGradient id="coreDark" cx="34%" cy="28%" r="74%">
+      <stop offset="0%" stop-color="#2f3449"/>
+      <stop offset="55%" stop-color="#111524"/>
+      <stop offset="100%" stop-color="#03040a"/>
     </radialGradient>
-
-    <radialGradient cx="0" cy="0" fx="-50%" fy="50%" gradientUnits="userSpaceOnUse" id="shadowGrad" r="100%">
-      <stop offset="0%" stop-color="black" stop-opacity="1.0"/>
-      <stop offset="100%" stop-color="white" stop-opacity="0.0"/>
+    <linearGradient id="rimDark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#86f8ff" stop-opacity="0.72"/>
+      <stop offset="45%" stop-color="#c885ff" stop-opacity="0.48"/>
+      <stop offset="100%" stop-color="#27304f" stop-opacity="0.88"/>
+    </linearGradient>
+    <radialGradient id="shineDark" cx="31%" cy="28%" r="38%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
-
-    <!-- Define a shadow for each sphere. -->
-    <circle cx="0" cy="0" fill="url(#shadowGrad)" id="shadow" r="100%"/>
+    <filter id="pieceShadowDark" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
   </defs>
 
-  <g transform="translate(25,25)">
-    <g transform="scale(0.5,0.5)">
-      <use transform="translate(25,55) scale(1.0,0.5)" xlink:href="#shadow"/>
-      <circle cx="0" cy="0" fill="url(#blackSphere)" r="100%"/>
-    </g>
+  <g filter="url(#pieceShadowDark)">
+    <circle cx="50" cy="50" r="42" fill="url(#coreDark)"/>
+    <circle cx="50" cy="50" r="42" fill="none" stroke="url(#rimDark)" stroke-width="4"/>
+    <circle cx="50" cy="50" r="26" fill="none" stroke="#8ef9ff" stroke-opacity="0.22" stroke-width="2"/>
+    <circle cx="50" cy="50" r="18" fill="none" stroke="#ff98e2" stroke-opacity="0.18" stroke-width="2"/>
+    <ellipse cx="39" cy="34" rx="17" ry="12" fill="url(#shineDark)"/>
+    <ellipse cx="57" cy="66" rx="20" ry="9" fill="#9db6ff" fill-opacity="0.1"/>
   </g>
-
 </svg>
