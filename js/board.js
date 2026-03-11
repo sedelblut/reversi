@@ -8,6 +8,7 @@ const HEIGHT = 500;
 const LINEWIDTH = 2;
 const RADIUS = 35;
 const RETRO_FUTURE_BACKGROUND_COUNT = 10;
+const BACKGROUND_DIM_ALPHA = 0.50;
 
 var board = Array.matrix(GRIDSIZE, GRIDSIZE, 0);
 var grid = new Image();
@@ -27,6 +28,8 @@ function drawBoard() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.fillRect(0, 0, canvas.width, canvas.height);
   context.drawImage(background, 0, 0, canvas.width, canvas.height);
+  context.fillStyle = "rgba(0, 0, 0, " + BACKGROUND_DIM_ALPHA + ")";
+  context.fillRect(0, 0, canvas.width, canvas.height);
   context.drawImage(grid, 0, 0, canvas.width, canvas.height);
 
   for (var i = 0; i < GRIDSIZE; i++) {
